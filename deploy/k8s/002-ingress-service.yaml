@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-service
+  namespace: mockrift-com
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+spec:
+  rules:
+    - host: www.mockrift.com
+      http:
+        paths:
+          - path: /?(.*)
+            backend:
+              serviceName: express-cluster-ip-service
+              servicePort: 3000
+    - host: mockrift.com
+      http:
+        paths:
+          - path: /?(.*)
+            backend:
+              serviceName: express-cluster-ip-service
+              servicePort: 3000
+

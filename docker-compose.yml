@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  express:
+    build:
+      context: .
+      dockerfile: deploy/docker/express/Dockerfile
+    environment:
+      NODE_ENV: development
+    command: ["sh", "-c", "yarn install && yarn dev"]
+    volumes:
+      - ./mockrift-com:/app:cached
+      - /app/node_modules
+    ports:
+      - 3000:3000

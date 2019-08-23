@@ -1,0 +1,20 @@
+{
+  "name": "mockrift-com",
+  "version": "1.0.0",
+  "description": "Website for mockrift.com",
+  "main": "index.js",
+  "repository": "https://github.com/bloveless/mockrift-com",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "node ssr-server.js"
+  },
+  "author": "Brennon Loveless",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "next": "^9.0.4",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  }
+}

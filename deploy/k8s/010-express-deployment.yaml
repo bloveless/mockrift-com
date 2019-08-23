@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mockrift-express
+  namespace: mockrift-com
+  labels:
+    app: express
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: express
+  template:
+    metadata:
+      labels:
+        app: express
+    spec:
+      containers:
+      - name: express
+        image: 391324319136.dkr.ecr.us-west-2.amazonaws.com/mockrift-com-express
+        ports:
+        - containerPort: 3000
+
